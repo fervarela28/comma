@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Blank Template for Bootstrap</title>
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Convergence">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amiko">
+    </head>
+    <body>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="main.js"></script>
+        <script>
+            function setCookie(cname, cvalue, exdays) {
+              var d = new Date();
+              d.setTime(d.getTime() + (exdays*24*60*60*1000));
+              var expires = "expires="+ d.toUTCString();
+              document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            };
+
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            };
+
+            function valid_resy_creds(user, pass){
+                $.ajax({
+                type: "GET",
+                  url: "https://us-central1-quickstart-1558446744841.cloudfunctions.net/resy_creds_auth",
+                  data: {'user': user,'pass': pass},
+                  success: function(data, status, jqXHR) {// success callback
+                    succeeded_resy_login(user,pass);
+                    return true;
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    failed_resy_login(); 
+                    return false;
+                    } 
+                });
+            };
+
+            function valid_login(){
+                $("#spinner").removeClass("d-none");
+                var user = document.forms["login_form"]["exampleInputEmail1"].value;
+                var password = document.forms["login_form"]["exampleInputPassword1"].value;
+                valid_resy_creds(user,password);
+            };
+
+            function succeeded_resy_login(user, pass){
+                $("#spinner").addClass("d-none");
+                setCookie('user', user, 30);
+                setCookie('pass', pass, 30);
+                window.location.replace("my_requests.html");
+            };
+
+            function failed_resy_login(){
+                $("#spinner").addClass("d-none");
+                $("#invalidLogin").removeClass("d-none");
+                return
+            };
+        </script>
+        <script src="main.js"></script>
+        <h1 class="text-center text-sm-center pb-0 mb-n2 comma_color comma_font">COMMA</h1>
+        <h6 class="text-center text-md-center pt-0">NEW YORK</h6>
+        <ul class="nav text-center text-md-center border-secondary nav-justified"> 
+            <li class="nav-item"> 
+                <a class="nav-link active text-body comma_font border h-100 text-nowrap" href="form_request.html">Request</a> 
+            </li>             
+            <li class="nav-item"> 
+                <a class="nav-link text-body comma_font border h-100 text-nowrap" href="about.html">About</a> 
+            </li>             
+            <li class="nav-item"> 
+                <a id="login_nav" class="nav-link text-body comma_font h-100 border text-nowrap" href="sign_in.html">Sign in</a> 
+            </li>             
+        </ul>
+        <div class="container mb-2" style=" 
+">
+            <h5 class="text-center comma_font mb-3 mt-4" style=" 
+">Login with your Resy account</h5>
+            <form role="form" class="comma_font" name="login_form" onsubmit="event.preventDefault(); return valid_login();"> 
+                <div class="form-group"> 
+                    <label for="exampleInputEmail1">Email address</label>                     
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"> 
+                </div>                 
+                <div class="form-group"> 
+                    <label for="exampleInputPassword1">Password</label>                     
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> 
+                </div>                 
+                <p class="form-text text-danger d-none" id="invalidLogin">Enter a valid Resy account email address &amp; password combination</p>
+                <div class="justify-content-center justify-content-sm-center d-flex d-sm-flex">
+                    <button type="submit" class="btn btn-lg btn-primary w-100">
+                        <div class="spinner-border float-right d-none" role="status" id="spinner">
+                            <span class="sr-only">Loading...</span>
+                        </div>                                                                                                                                                Continue
+                    </button>
+                </div>                 
+            </form>
+        </div>
+        <div class="text-center">
+</div>
+        <div>
+            <p class="text-center mt-2">Don't have a Resy account? <a href="https://resy.com/">Sign Up</a></p>
+        </div>
+        <footer class="bg-secondary mt-3">
+            <div class="row pt-2">
+                <div class="col-6"> 
+                    <p class="text-light text-right" style=" 
+font-size: 9px;
+                                                            ">Contact us at <a href="mailto: info@commanyc.com" class="text-light"> info@commanyc.com</a></p> 
+                </div>
+                <div class="col-6">
+                    <p class="text-light text-center mb-1" style=" 
+font-size: 9px;
+">© 2019 Comma NYC</p>
+                    <p class="text-light text-center" style=" 
+font-size: 9px;
+"><a href="terms.html" class="text-light">
+                        Terms & Conditions</a></p> 
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

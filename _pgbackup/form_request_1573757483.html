@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Blank Template for Bootstrap</title>
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Convergence">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <!--DATE PICKER-->         
+        <!--     <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
+        <!--DATE PICKER end-->         
+        <!--SLIDER
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        SLIDER-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amiko">
+    </head>
+    <body>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <!--<script src="assets/js/jquery.min.js"></script>-->
+        <script src="assets/js/popper.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="main.js"></script>
+        <!--
+        <script>
+        $( document ).ready(function() {
+            if(!getCookie('user')){
+                window.location.replace("sign_in.html");
+            }
+        });
+        
+        </script>-->
+        <script>
+        $(document).ready(function() {
+           $("#requestButton").click(function() {
+               $("#requestForm").submit();
+           });
+        });
+        function add_request_ajax(data){
+            $.ajax({
+                type: "GET",
+                  url: "https://us-central1-quickstart-1558446744841.cloudfunctions.net/add_reservation_request",
+                  data: data,
+                  success: function(data, status, jqXHR) {// success callback
+                    window.location.replace("my_requests.html");
+                    return true;
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest);
+                    alert(textStatus);
+                    alert(errorThrown);
+                    return false;
+                    } 
+                });
+        }
+        function add_request(){
+            //$("#spinner").removeClass("d-none");
+            rest = $( "#formInputRestaurant" ).val();
+            party_size = $( "#formInputPartySize" ).val();
+            start_date = $( "#datepicker_earliest" ).val();
+            end_date = $( "#datepicker_latest" ).val();
+            start_time = $( "#formInputEarliestTime" ).val();
+            end_time = $( "#formInputLatestTime" ).val();
+
+            data = {'user':getCookie('user'),
+                   'pass':getCookie('pass'),
+                   'rest':rest,
+                   'party_size':party_size,
+                   'start_date':start_date,
+                   'end_date':end_date,
+                   'start_time':start_time,
+                   'end_time':end_time}
+            add_request_ajax(data);
+        };
+        </script>
+        <h1 class="text-center text-sm-center pb-0 mb-n2 comma_color comma_font" style=" 
+margin-top: 8px;
+            ">COMMA</h1>
+        <h6 class="text-center text-md-center pt-0">NEW YORK</h6>
+        <ul class="nav text-center text-md-center border-secondary nav-justified"> 
+            <li class="nav-item"> 
+                <a class="nav-link active text-body comma_font border h-100 text-nowrap" href="./form_request2.html">Request</a> 
+            </li>             
+            <li class="nav-item"> 
+                <a class="nav-link text-body comma_font border h-100 text-nowrap" href="./about.html">About</a> 
+            </li>             
+            <li class="nav-item"> 
+                <a id="login_nav" class="nav-link text-body comma_font h-100 border text-nowrap" href="./sign_in.html">Sign in</a> 
+            </li>             
+        </ul>
+        <div class="container comma_font">
+            <form class="mt-3" id="requestForm" onsubmit="event.preventDefault(); return add_request();">
+                <div class="form-group" data-pg-name="restaurant"> 
+                    <div class="row">
+                        <label for="formInputRestaurant" class="d-flex align-items-end col-6 justify-content-end">Restaurant:</label>
+                        <select id="formInputRestaurant" class="form-control border-right-0 border-top-0 border-left-0 col-5 border-dark" style=" 
+"> 
+                            <option>I Sodi</option>                             
+                            <option>Don Angie</option>                             
+                            <option>Misi</option>
+                            <option>Rubirosa</option>
+                            <option>4 Charles</option>
+                            <option>Carbone</option>
+                        </select>
+                    </div>                     
+                </div>
+                <div class="form-group" data-pg-name="party_size"> 
+                    <div class="row">
+                        <label for="formInputPartySize" class="d-flex align-items-end col-6 justify-content-end">Party Size:</label>
+                        <select id="formInputPartySize" class="form-control border-right-0 border-top-0 border-left-0 col-5 border-dark" style=" 
+"> 
+                            <option>2</option>                             
+                            <option>3</option>                             
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>                             
+                        </select>
+                    </div>                     
+                </div>
+                <div class="row" data-pg-name="date_picker">
+                    <div class="col-6"> 
+                        <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                            <label class="control-label" for="datepicker-start">Earliest Date:</label>
+                            <input id="datepicker_earliest" width="276" class="col-5 col-sm-5"/>
+                        </div>
+                    </div>
+                    <div class="col-6"> 
+                        <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                            <label class="control-label" for="datepicker-end">Latest Date:</label>
+                            <input id="datepicker_latest" width="276" class="col-5 col-sm-5"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pb-2 pt-2" data-pg-name="times">
+                    <div class="col-6" data-pg-name="earliest_time">
+                        <label class="control-label" for="datepicker-start">Earliest Time:</label>
+                        <div class="row">
+                            <select id="formInputEarliestTime" class="form-control border-right-0 border-top-0 border-left-0 border-dark ml-3 mr-3" style=" 
+                    "> 
+                                <option>5:00 PM</option>                                 
+                                <option>6:00 PM</option>                                 
+                                <option>7:00 PM</option>
+                                <option>8:00 PM</option>
+                                <option>9:00 PM</option>
+                                <option>10:00 PM</option>                                 
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6" data-pg-name="latest_time">
+                        <label class="control-label" for="datepicker-start">Latest Time:</label>
+                        <div class="row">
+                            <select id="formInputLatestTime" class="form-control border-right-0 border-top-0 border-left-0 border-dark ml-3 mr-3" style=" 
+                    "> 
+                                <option>6:00 PM</option>                                 
+                                <option>7:00 PM</option>                                 
+                                <option>8:00 PM</option>
+                                <option>9:00 PM</option>
+                                <option>10:00 PM</option>
+                                <option>11:00 PM</option>                                 
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- SLIDER                <p> <label for="amount" data-pg-name="Hours">Available hours:</label> <input type="text" id="amount" readonly style="border:0; font-weight:bold;" class="comma_color"></p>
+                <div id="slider-range" class="bg-secondary"></div>-->
+            </form>
+        </div>
+        <!-- CHANCES BAR
+        <div class="container mt-4" data-pg-name="chances_bar">
+            <p class="mb-2">Your chances of getting this reservation are:</p>
+            <div class="row d-flex d-sm-flex justify-content-center justify-content-sm-center comma_font">
+                <div class="progress mr-0 pl-0 ml-2 col-6 mt-0 mb-0">
+                    <div class="progress-bar chances_moderate" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <span class="col-4 d-flex d-sm-flex align-items-center text-muted">MODERATE</span>
+            </div>
+        </div>-->
+        <p style=" 
+font-size: 13px;
+margin-left: 11px;
+margin-right: 11px;
+">Try choosing later dates, wider time ranges, or smaller party sizes to improve your chances of getting a reservation.</p>
+        <div class="text-center">
+            <button id="requestButton" type="button" class="btn text-center btn-outline-light btn-danger mt-2 pl-5 pr-5" style=" 
+background-color: #ff0000;
+color: #ffffff;
+">REQUEST</button>
+        </div>
+        <footer class="mt-3 footerz" style=" 
+">
+            <div class="row pt-2">
+                <div class="col-6"> 
+                    <p class="text-light text-right" style=" 
+font-size: 9px;
+                                                            ">Contact us at <a href="mailto: info@commanyc.com" class="text-light"> info@commanyc.com</a></p> 
+                </div>
+                <div class="col-6">
+                    <p class="text-light text-center mb-1" style=" 
+font-size: 9px;
+">© 2019 Comma NYC</p>
+                    <p class="text-light text-center" style=" 
+font-size: 9px;
+"><a href="terms.html" class="text-light">
+                        Terms & Conditions</a></p> 
+                </div>
+            </div>
+        </footer>
+        <script>           
+                $('#datepicker_earliest').datepicker({
+                    uiLibrary: 'bootstrap4'
+                });
+                $('#datepicker_latest').datepicker({
+                    uiLibrary: 'bootstrap4'
+                });
+                  
+                $( "#slider-range" ).slider({
+                  range: true,
+                  min: 5,
+                  max: 11,
+                  values: [ 7, 10 ],
+                  slide: function( event, ui ) {
+                    $( "#amount" ).val(ui.values[ 0 ] + ":00 PM - " + ui.values[ 1 ] + ":00 PM" );
+                  }
+                });
+                $( "#amount" ).val($( "#slider-range" ).slider( "values", 0 ) +
+                  ":00 PM - " + $( "#slider-range" ).slider( "values", 1 ) + ":00 PM") 
+            </script>
+    </body>
+</html>

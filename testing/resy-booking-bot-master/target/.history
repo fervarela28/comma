@@ -1,0 +1,53 @@
+run
+run abc
+run andrew
+run emily
+run emily 418 5
+run emily 418 4
+run andrew 418 4
+run andrew 443 4
+run vicky 443 4
+run vicky 1505 6
+run andrew 1505 2
+run vicky 418 6
+run andrew 834 4
+run emily 443 4
+sbt
+run vicky 443 6
+run emily 1505 4
+run vicky 1505 4
+run andrew 418 4
+run vicky 443 4
+run emily 443 4
+run emily 418 4
+run andrew 587 4
+run andrew 418 4
+run andrew 443 4
+run emily 418 4
+run andrew 443 4
+run andrew 1505 4
+run emily 443 4
+run vicky 418 4
+run vicky 1505 4
+run vicky 587 4
+run emily 587 4
+run andrew 3015 4
+run emily 3015 4
+run emily 443 2
+run andrew 1505 2
+run vicky 1505 4
+run emily 1505 4
+run alex 587 4
+run alex 587 2
+run emily 587 2
+run andrew 466 4
+run vicky 466 4
+run andrew 418 2
+run andrew 418 4
+run vicky 1518 4
+run andrew 443 2
+run vicky 1505 4
+run andrew 587 2
+run emily 834 4
+run andrew 443 2
+run andrew 587 2
