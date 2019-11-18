@@ -76,7 +76,7 @@ select.form-control {
     bottom: 0;
     width: 100%;
     background-color: #aeadad;
-    height: 3.5rem;
+    height: 2.5rem;
 }
 
 #page-container {
@@ -85,5 +85,5 @@ select.form-control {
 }
 
 #content-wrap {
-	paddin-bottom: 3.5rem;
+	paddin-bottom: 2.5rem;
 }

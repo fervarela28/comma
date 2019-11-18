@@ -53,6 +53,14 @@ bordes {
     background-color: #d20000;
 }
 
+.footerz {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #aeadad;
+    height: 2.5rem;
+}
+
 .my_requests_fotos {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
@@ -71,19 +79,11 @@ select.form-control {
     text-decoration: none !important;
 }
 
-.footerz {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: #aeadad;
-    height: 3.5rem;
-}
-
 #page-container {
 	position: relative;
     min-height: 100vh;
 }
 
 #content-wrap {
-	paddin-bottom: 3.5rem;
+	paddin-bottom: 2.5rem;
 }
