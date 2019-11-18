@@ -31,7 +31,7 @@ margin-top: 8px;
             for (i = 0; i < values.length; i++) {
                 current_request = values[i]
                 rest = id_to_rest[current_request[2]]
-                rest_file = rest.replace(' ','')
+                rest_file = rest.replace(' ','').toLowerCase()
                 party_size = current_request[3]
                 start_date = current_request[4].substring(0,5)
                 end_date = current_request[5].substring(0,5)
