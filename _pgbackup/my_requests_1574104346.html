@@ -78,7 +78,6 @@ margin-top: 8px;
               url: "https://us-central1-quickstart-1558446744841.cloudfunctions.net/get_user_requests",
               data: {'user': user,'pass': pass},
               success: function(data, status, jqXHR) {// success callback
-                $("#spinner").addClass("d-none");
                 populate_requests(data['values']);
                 return true;
                 },

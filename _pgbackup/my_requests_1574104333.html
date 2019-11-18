@@ -78,7 +78,6 @@ margin-top: 8px;
               url: "https://us-central1-quickstart-1558446744841.cloudfunctions.net/get_user_requests",
               data: {'user': user,'pass': pass},
               success: function(data, status, jqXHR) {// success callback
-                $("#spinner").addClass("d-none");
                 populate_requests(data['values']);
                 return true;
                 },
@@ -106,9 +105,6 @@ margin-top: 8px;
                         <a id="login_nav" class="nav-link text-body comma_font h-100 border text-nowrap" href="./sign_in.html">Sign in</a> 
                     </li>                     
                 </ul>
-                <div class="container text-center mt-2">
-                    <div class="spinner-border" role="status" id="spinner"></div>
-                </div>
                 <div class="container mb-2" data-pg-name="My reservations" id="requests">
                     <!-- <div class="row border ml-1 mr-1 mb-2 mt-2 bordes bg-light">
                         <div class="col-5">
