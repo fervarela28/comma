@@ -14,6 +14,17 @@ function getCookie(cname) {
     return "";
 };
 
+function swap(json){
+  var ret = {};
+  for(var key in json){
+    ret[json[key]] = key;
+  }
+  return ret;
+}
+
+var rest_to_id = {'Blanca': 5994,'Misi': 3015,'Wayan': 4599,'Don Angie' : 1505, 'Lilia' : 418, '4 Charles' : 834, 'I Sodi' : 443, 'Atoboy' : 587, 'Rubirosa' : 466, 'Tokyo Record' : 1518, 'Carbone' : 6194}
+var id_to_rest = swap(rest_to_id)
+
 $( document ).ready(function() {
     if(getCookie('user')){
         login_nav = $("#login_nav");

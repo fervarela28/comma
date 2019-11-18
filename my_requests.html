@@ -27,6 +27,9 @@ margin-top: 8px;
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="main.js"></script>
         <script>
+        // function populate_requests(){
+            
+        // }
         function get_user_requests(user, pass){
             $.ajax({
             type: "GET",
@@ -34,6 +37,8 @@ margin-top: 8px;
               data: {'user': user,'pass': pass},
               success: function(data, status, jqXHR) {// success callback
                 alert("Funciono, el objeto data deberia tener los requests");
+
+                console.log(data['values']);
                 return true;
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {

@@ -69,7 +69,7 @@
                 });
         }
         function add_request(){
-            $("#spinner").removeClass("d-none");
+            //$("#spinner").removeClass("d-none");
             rest = $( "#formInputRestaurant" ).val();
             party_size = $( "#formInputPartySize" ).val();
             start_date = $( "#datepicker_earliest" ).val();
@@ -79,7 +79,7 @@
 
             data = {'user':getCookie('user'),
                    'pass':getCookie('pass'),
-                   'rest':rest_to_id[rest],
+                   'rest':rest,
                    'party_size':party_size,
                    'start_date':start_date,
                    'end_date':end_date,
@@ -201,16 +201,15 @@ font-size: 13px;
 ">Try choosing later dates, wider time ranges, or smaller party sizes to improve your chances of getting a reservation.</p>
         </div>
         <div class="row d-flex justify-content-center align-items-center">
-            <button id="requestButton" type="button" class="btn btn-outline-light btn-danger w-50" style=" 
+            <button id="requestButton" type="button" class="btn btn-outline-light btn-danger w-50 h-100" style=" 
 background-color: #ff0000;
 color: #ffffff;
-height: 50px;
 "> 
                 <div class="row">
                     <div class="col-3"></div>
-                    <div class="col-6 d-flex align-items-center justify-content-center">REQUEST</div>
+                    <div class="col-6 d-flex align-items-center">REQUEST</div>
                     <div class="col-3">
-                        <div class="spinner-border d-none" role="status" id="spinner"></div>
+                        <div class="spinner-border" role="status" id="spinner"></div>
                     </div>                     
                 </div>
             </button>
