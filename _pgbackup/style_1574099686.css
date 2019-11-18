@@ -54,11 +54,10 @@ bordes {
 }
 
 .footerz {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     background-color: #aeadad;
-    height: 2.5rem;
 }
 
 .my_requests_fotos {

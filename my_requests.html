@@ -38,16 +38,16 @@ margin-top: 8px;
                 end_time = current_request[7]
                 req_id = current_request[8]
                 console.log(current_request);
-                document.getElementById('requests').innerHTML =+ `<div class="row border ml-1 mr-1 mb-2 mt-2 bordes bg-light" style="">
+                document.getElementById('requests').innerHTML += `<div class="row border ml-1 mr-1 mb-2 mt-2 bordes bg-light" style="">
                 <div class="col-5">
                     <img src="images/isodi.png" class="ml-n3 my_requests_fotos">
                 </div>
                 <div class="col-7">
                     <div class="row ">
-                        <b>I Sodi</b>
+                        <b>${rest}</b>
                     </div>
                     <div class="row mb-1">
-                        <i class="material-icons">person</i>&nbsp;Table for 2
+                        <i class="material-icons">person</i>&nbsp;Table for ${party_size}
                         <br>
                     </div>
                     <div class="row mb-1">

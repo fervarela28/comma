@@ -54,11 +54,10 @@ bordes {
 }
 
 .footerz {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     background-color: #aeadad;
-    height: 2.5rem;
 }
 
 .my_requests_fotos {
@@ -79,11 +78,7 @@ select.form-control {
     text-decoration: none !important;
 }
 
-#page-container {
+#content-wrap {
 	position: relative;
     min-height: 100vh;
-}
-
-#content-wrap {
-	paddin-bottom: 2.5rem;
 }
