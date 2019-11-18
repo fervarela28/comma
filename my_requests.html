@@ -27,6 +27,13 @@ margin-top: 8px;
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="main.js"></script>
         <script>
+        $( document ).ready(function() {
+            if(!getCookie('user')){
+                window.location.replace("sign_in.html");
+            }
+        });
+        </script>
+        <script>
         function populate_requests(values){
             for (i = 0; i < values.length; i++) {
                 current_request = values[i]
@@ -88,7 +95,7 @@ margin-top: 8px;
                 } 
             });
         };
-        get_user_requests("fernandoavarelaf@gmail.com", "qweasdzc")
+        get_user_requests(getCookie('user'), getCookie('pass'))
 
         </script>
         <div id="page-container">
