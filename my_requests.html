@@ -32,10 +32,10 @@ margin-top: 8px;
                 current_request = values[i]
                 rest = id_to_rest[current_request[2]]
                 party_size = current_request[3]
-                start_date = current_request[4]
-                end_date = current_request[5]
-                start_time = current_request[6]
-                end_time = current_request[7]
+                start_date = current_request[4].substring(0,5)
+                end_date = current_request[5].substring(0,5)
+                start_time = current_request[6].substring(0,current_request[6].search(':'))
+                end_time = current_request[7].substring(0,current_request[7].search(':'))
                 req_id = current_request[8]
                 console.log(current_request);
                 document.getElementById('requests').innerHTML += `<div class="row border ml-1 mr-1 mb-2 mt-2 bordes bg-light" style="">
@@ -51,11 +51,11 @@ margin-top: 8px;
                         <br>
                     </div>
                     <div class="row mb-1">
-                        <i class="material-icons">calendar_today</i>&nbsp;10-22 November
+                        <i class="material-icons">calendar_today</i>&nbsp;${start_date} - ${end_date}
                         <br>
                     </div>
                     <div class="row border border-top-0 border-right-0 border-left-0 pb-1 mb-0">
-                        <i class="material-icons">access_time</i>&nbsp;Starting: ${start_time}-${end_time}
+                        <i class="material-icons">access_time</i>&nbsp;Starting: ${start_time}-${end_time} PM
                         <br>
                     </div>
                     <div class="row">
@@ -104,7 +104,7 @@ margin-top: 8px;
                     </li>                     
                 </ul>
                 <div class="container mb-2" data-pg-name="My reservations" id="requests">
-                    <div class="row border ml-1 mr-1 mb-2 mt-2 bordes bg-light">
+                    <!-- <div class="row border ml-1 mr-1 mb-2 mt-2 bordes bg-light">
                         <div class="col-5">
                             <img src="images/isodi.png" class="ml-n3 my_requests_fotos">
                         </div>
@@ -164,7 +164,7 @@ margin-top: 8px;
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <br/>
                 <div class="text-center">
