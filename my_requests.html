@@ -31,16 +31,18 @@ margin-top: 8px;
             for (i = 0; i < values.length; i++) {
                 current_request = values[i]
                 rest = id_to_rest[current_request[2]]
+                rest_file = rest.replace(' ','')
                 party_size = current_request[3]
                 start_date = current_request[4].substring(0,5)
                 end_date = current_request[5].substring(0,5)
                 start_time = current_request[6].substring(0,current_request[6].search(':'))
                 end_time = current_request[7].substring(0,current_request[7].search(':'))
                 req_id = current_request[8]
+
                 console.log(current_request);
                 document.getElementById('requests').innerHTML += `<div class="row border ml-1 mr-1 mb-2 mt-2 bordes bg-light" style="">
                 <div class="col-5">
-                    <img src="images/isodi.png" class="ml-n3 my_requests_fotos">
+                    <img src="images/${rest_file}.png" class="ml-n3 my_requests_fotos">
                 </div>
                 <div class="col-7">
                     <div class="row ">
