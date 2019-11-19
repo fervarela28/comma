@@ -44,7 +44,7 @@ def set_notifies(email, password, days_list, venue_id, time_preferred_start, tim
         print notify(auth_token, day, venue_id, time_preferred_start, time_preferred_end, num_seats, service_type_id)
     return
 
-#set_notifies('andrewandrews@email.com', 'andrewandrews', ['2019-11-'+str(x) for x in range(20,21)], 6194, '18:00:00','21:00:00', 8, 2)
+set_notifies('commanyccomma@gmail.com', 'commanyccomma', ['2019-12-'+str(x) for x in range(10,11)], 466, '19:00:00','19:00:00', 4, 2)
 
 
 def get_available_reservation(email, password, day, venue_id, party_size):
@@ -121,7 +121,7 @@ def get_new_reservation(email, password, day, valid_datetimes, venue_id, party_s
             print 'successfully booked reservation at: ', random_reservation['date']['start']
             return
 
-get_new_reservation('ana.castillo.arauz@gmail.com', 'castillo28','2019-12-12',get_valid_datetimes('2019-12-12','18:00:00','21:00:00'), '6194', 4)
+#get_new_reservation('ana.castillo.arauz@gmail.com', 'castillo28','2019-12-12',get_valid_datetimes('2019-12-12','18:00:00','21:00:00'), '6194', 4)
 
 
 
